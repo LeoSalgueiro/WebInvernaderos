@@ -9,6 +9,7 @@ import { NodosModule } from './nodos/nodos.module';
 import { NodosController } from './nodos/nodos.controller';
 import { NodosService } from './nodos/nodos.service';
 import { Nodo, NodoSchema } from './nodos/nodos.schema';
+import { ConfigNodo, ConfigNodoSchema } from './nodos/configNodo.schema';
 
 @Module({
   imports: [
@@ -22,6 +23,11 @@ import { Nodo, NodoSchema } from './nodos/nodos.schema';
     }),
     MongooseModule.forFeature([
       { name: Nodo.name, schema: NodoSchema, collection: 'nodos' },
+      {
+        name: ConfigNodo.name,
+        schema: ConfigNodoSchema,
+        collection: 'configNodo',
+      },
     ]),
     NodosModule,
   ],
