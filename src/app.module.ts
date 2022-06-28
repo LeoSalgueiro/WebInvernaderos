@@ -3,7 +3,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { NodosModule } from './nodos/nodos.module';
 import { NodosController } from './nodos/nodos.controller';
@@ -14,7 +13,6 @@ import { ConfigNodo, ConfigNodoSchema } from './nodos/configNodo.schema';
 @Module({
   imports: [
     AuthModule,
-    UsersModule,
     UsuariosModule,
     MongooseModule.forRootAsync({
       useFactory: () => ({

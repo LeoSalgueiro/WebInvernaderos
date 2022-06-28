@@ -1,11 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Connection, Model } from 'mongoose';
-import { InjectConnection, InjectModel } from '@nestjs/mongoose';
-import { Usuario, UsuarioDocument, UsuarioSchema } from './usuario.schema';
-import { resourceLimits } from 'worker_threads';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Usuario, UsuarioDocument } from './usuario.schema';
 
 // This should be a real class/interface representing a user entity
-//export type Usuario2 = any;
 
 @Injectable()
 export class UsuariosService {
@@ -15,7 +13,6 @@ export class UsuariosService {
 
   async findAll(): Promise<Usuario[]> {
     const result = await this.usuarioModel.find().exec();
-    //let result = await this.usuarioModel.find((user)=> user.name === nombre)
     return result;
   }
 
@@ -23,7 +20,6 @@ export class UsuariosService {
     const result = await this.usuarioModel.findOne({
       email: email,
     });
-    //let result = await this.usuarioModel.find((user)=> user.name === nombre)
     return result;
   }
 
@@ -84,23 +80,4 @@ export class UsuariosService {
       return 'usuario agregado';
     }
   }
-
-  /*
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'john',
-      password: 'changeme',
-    },
-    {
-      userId: 2,
-      username: 'maria',
-      password: 'guess',
-    },
-  ];
-
-  async findOne(username: string): Promise<Usuario | undefined> {
-    return this.users.find((user) => user.username === username);
-  }
-  */
 }

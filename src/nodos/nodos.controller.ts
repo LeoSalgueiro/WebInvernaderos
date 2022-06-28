@@ -1,5 +1,4 @@
 import { Controller, Get, Post, Request } from '@nestjs/common';
-import { get } from 'http';
 import { NodosService } from './nodos.service';
 
 @Controller('nodos')
@@ -60,6 +59,6 @@ export class NodosController {
         return response;
       });
 
-      return result;
+    return result;
   }
 }

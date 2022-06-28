@@ -8,7 +8,11 @@ import { NodosService } from './nodos.service';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: Nodo.name, schema: NodoSchema, collection: 'nodos' },
+      {
+        name: Nodo.name,
+        schema: NodoSchema,
+        collection: 'nodos',
+      },
       {
         name: ConfigNodo.name,
         schema: ConfigNodoSchema,

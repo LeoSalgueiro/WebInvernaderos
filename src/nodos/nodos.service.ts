@@ -45,19 +45,6 @@ export class NodosService {
     });
   }
 
-  /*
-  async insert(body): Promise<Nodo> {
-    return await this.nodoModel.insertMany({
-      nombre: body.nombre,
-      conexiones: body.conexiones,
-      fechaAlta: body.fechaAlta,
-      tipo: body.tipo,
-      email: body.email,
-      descripcion: body.descripcion,
-    });
-  }
-  */
-
   async getUltimoIngreso(email, nombre): Promise<Nodo[]> {
     return await this.nodoModel
       .find({ email: email, nombre: nombre })
