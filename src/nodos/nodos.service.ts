@@ -18,7 +18,8 @@ export class NodosService {
   async findAllByNombre(email, nombre): Promise<Nodo[]> {
     return await this.nodoModel
       .find({ email: email, nombre: nombre })
-      .sort({ fechaAlta: -1 });
+      .sort({ fechaAlta: -1 })
+      .limit(300);
   }
 
   async findOne(email): Promise<Nodo> {
